@@ -109,6 +109,9 @@
                                         <rect key="frame" x="141" y="517" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Update Label"/>
+                                        <connections>
+                                            <action selector="updateLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U2P-Fu-mey"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </scrollView>
@@ -117,6 +120,8 @@
                     </view>
                     <connections>
                         <outlet property="buttonCounter" destination="62W-L8-GBC" id="Ndg-jq-Ud9"/>
+                        <outlet property="getText" destination="hNr-tA-eFs" id="y6c-Cf-aho"/>
+                        <outlet property="labelText" destination="7q8-ew-Kf0" id="NxB-bG-wm1"/>
                         <outlet property="scrollView" destination="RNI-jV-9Jy" id="eqT-go-elJ"/>
                         <outlet property="selectorChoice" destination="vIq-CV-IRe" id="GUh-Sz-2B0"/>
                         <outlet property="selectorState" destination="Yhh-9r-2su" id="iES-M8-2VG"/>

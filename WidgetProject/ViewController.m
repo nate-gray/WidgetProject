@@ -22,6 +22,8 @@
 @synthesize switchOutlet;
 @synthesize textOutlet;
 @synthesize scrollView;
+@synthesize labelText;
+@synthesize getText;
 
 int buttonWasPressed;
 
@@ -147,4 +149,11 @@ int buttonWasPressed;
     
 }
 
+
+
+- (IBAction)updateLabelText:(id)sender {
+    
+    labelText.text = [NSString stringWithFormat:@"%@",getText.text];
+    
+}
 @end

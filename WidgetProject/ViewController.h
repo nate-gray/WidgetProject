@@ -47,5 +47,10 @@
 - (void) keyboardWasShown: (NSNotification *) aNotification;
 - (void) keyboardWillBeHidden: (NSNotification *) aNotification;
 
+@property (weak, nonatomic) IBOutlet UILabel *labelText;
+
+- (IBAction)updateLabelText:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *getText;
+
 @end
 
