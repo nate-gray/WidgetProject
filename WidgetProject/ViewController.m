@@ -20,12 +20,20 @@
 @synthesize sliderLabel;
 @synthesize sliderOutlet;
 @synthesize switchOutlet;
+@synthesize textOutlet;
+@synthesize scrollView;
 
 int buttonWasPressed;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+    
+    
 }
 
 
@@ -88,4 +96,55 @@ int buttonWasPressed;
     sliderLabel.text = [NSString stringWithFormat:@"%d %%",percentage];
     
 }
+
+- (IBAction)didEndEditing:(id)sender {
+    
+    activeField = nil;
+    
+}
+
+- (IBAction)didBeginEditing:(id)sender {
+    
+    activeField = sender;
+    
+}
+
+- (IBAction)doneWithKeyboard:(id)sender {
+    
+    activeField = nil;
+    [sender resignFirstResponder];
+    
+}
+
+- (void) keyboardWasShown: (NSNotification *) aNotification {
+    
+    NSDictionary *info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey]CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    
+    scrollView.contentInset = contentInsets;
+    scrollView.scrollIndicatorInsets = contentInsets;
+    
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    
+    if(!CGRectContainsPoint(aRect, activeField.frame.origin)) {
+        
+        CGPoint scrollPoint = CGPointMake(0.0, activeField.frame.origin.y - kbSize.height);
+        
+        [scrollView setContentOffset:scrollPoint animated:YES];
+        
+    }
+    
+}
+
+- (void) keyboardWillBeHidden: (NSNotification *) aNotification {
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    scrollView.contentInset = contentInsets;
+    scrollView.scrollIndicatorInsets = contentInsets;
+    
+}
+
 @end

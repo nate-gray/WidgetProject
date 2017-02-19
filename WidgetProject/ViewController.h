@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    
+    UITextField *activeField;
+    
+}
 
 - (IBAction)buttonPressed:(id)sender;
 
@@ -32,6 +36,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *sliderLabel;
 
 - (IBAction)sliderValue:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UITextField *textOutlet;
+
+- (IBAction)didEndEditing:(id)sender;
+- (IBAction)didBeginEditing:(id)sender;
+- (IBAction)doneWithKeyboard:(id)sender;
+
+- (void) keyboardWasShown: (NSNotification *) aNotification;
+- (void) keyboardWillBeHidden: (NSNotification *) aNotification;
 
 @end
 
