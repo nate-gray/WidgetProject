@@ -13,6 +13,9 @@
 @end
 
 @implementation ViewController
+@synthesize buttonCounter;
+
+int buttonWasPressed;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,4 +29,11 @@
 }
 
 
+- (IBAction)buttonPressed:(id)sender {
+    
+    buttonWasPressed++;
+    
+    buttonCounter.text = [NSString stringWithFormat:@"The button was pressed %d times", buttonWasPressed];
+    
+}
 @end
