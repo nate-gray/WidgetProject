@@ -24,8 +24,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *selectorState;
 
+@property (weak, nonatomic) IBOutlet UISlider *sliderOutlet;
 
+@property (weak, nonatomic) IBOutlet UILabel *sliderLabel;
 
+- (IBAction)sliderValue:(id)sender;
 
 @end
 

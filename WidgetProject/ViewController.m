@@ -17,6 +17,8 @@
 @synthesize switchState;
 @synthesize selectorState;
 @synthesize selectorChoice;
+@synthesize sliderLabel;
+@synthesize sliderOutlet;
 
 int buttonWasPressed;
 
@@ -49,11 +51,11 @@ int buttonWasPressed;
 }
 - (IBAction)selector:(id)sender {
     
-    if(selectorChoice.selectedSegmentIndex == nil) {
-        
-        selectorState.text = @"No segment selected";
-        
-    }
+//    if(selectorChoice.selectedSegmentIndex == nil) {
+//        
+//        selectorState.text = @"No segment selected";
+//        
+//    }
     
     if(selectorChoice.selectedSegmentIndex == 0) {
         
@@ -66,6 +68,13 @@ int buttonWasPressed;
         selectorState.text = @"Second segment selected";
         
     }
+    
+}
+- (IBAction)sliderValue:(id)sender {
+    
+    int percentage = sliderOutlet.value * 100;
+    
+    sliderLabel.text = [NSString stringWithFormat:@"%d %%",percentage];
     
 }
 @end
