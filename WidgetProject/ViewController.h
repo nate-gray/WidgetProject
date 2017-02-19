@@ -14,8 +14,15 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *buttonCounter;
 
+- (IBAction)switch:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *switchState;
 
+- (IBAction)selector:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *selectorChoice;
+
+@property (weak, nonatomic) IBOutlet UILabel *selectorState;
 
 
 

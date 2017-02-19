@@ -14,6 +14,9 @@
 
 @implementation ViewController
 @synthesize buttonCounter;
+@synthesize switchState;
+@synthesize selectorState;
+@synthesize selectorChoice;
 
 int buttonWasPressed;
 
@@ -34,6 +37,35 @@ int buttonWasPressed;
     buttonWasPressed++;
     
     buttonCounter.text = [NSString stringWithFormat:@"The button was pressed %d times", buttonWasPressed];
+    
+}
+
+
+
+- (IBAction)switch:(id)sender {
+    
+    
+    
+}
+- (IBAction)selector:(id)sender {
+    
+    if(selectorChoice.selectedSegmentIndex == nil) {
+        
+        selectorState.text = @"No segment selected";
+        
+    }
+    
+    if(selectorChoice.selectedSegmentIndex == 0) {
+        
+        selectorState.text = @"First segment selected";
+        
+    }
+    
+    if(selectorChoice.selectedSegmentIndex == 1) {
+        
+        selectorState.text = @"Second segment selected";
+        
+    }
     
 }
 @end
