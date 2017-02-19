@@ -16,6 +16,9 @@
 
 - (IBAction)switch:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UISwitch *switchOutlet;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *switchState;
 
 - (IBAction)selector:(id)sender;

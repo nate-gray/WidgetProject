@@ -19,6 +19,7 @@
 @synthesize selectorChoice;
 @synthesize sliderLabel;
 @synthesize sliderOutlet;
+@synthesize switchOutlet;
 
 int buttonWasPressed;
 
@@ -46,7 +47,17 @@ int buttonWasPressed;
 
 - (IBAction)switch:(id)sender {
     
+    if(switchOutlet.on) {
+        
+        switchState.text = @"The switch is: on";
+        
+    }
     
+    if(!switchOutlet.on) {
+        
+        switchState.text = @"The switch is: off";
+        
+    }
     
 }
 - (IBAction)selector:(id)sender {
